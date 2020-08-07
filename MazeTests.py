@@ -72,6 +72,17 @@ class MazeTests(unittest.TestCase):
         self.m.setMatrixValueAt(self.m.turtle.pos(), 0)
         self.assertTrue(self.m.matrix[0][0] == 0)
 
+    def testDig(self):
+        self.m.dig(EAST)
+        self.assertEqual(self.m.turtle.pos(),(-160,180))
+        self.assertTrue(self.m.matrix[1][0] == 0)
+        self.m.dig(WEST)
+        self.assertEqual(self.m.turtle.pos(), (-180,180))
+        self.m.dig(NORTH)
+        self.assertEqual(self.m.turtle.pos(), (-180,180))
+        self.m.dig(SOUTH)
+        self.assertEqual(self.m.turtle.pos(), (-180,160))
 
+        
 if __name__ == "__main__":
     unittest.main()

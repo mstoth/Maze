@@ -38,7 +38,41 @@ class Maze:
         self.turtle.stamp()
 
     def dig(self, d):
-        return self.turtle.pos()
+        p = self.turtle.pos()
+        # (-180,180) for instance
+        if d == EAST:
+            newpos = (p[0] + 20, p[1])
+            self.turtle.stamp()
+            self.turtle.goto(newpos)
+            i,j = self.pos2index(newpos)
+            self.matrix[i][j] = 0
+        if d == WEST:
+            if p[0] == -180:
+                return p
+            else:
+                newpos = (p[0] - 20, p[1])
+                self.turtle.stamp()
+                self.turtle.goto(newpos)
+                i,j = self.pos2index(newpos)
+                self.matrix[i][j]=0
+        if d == NORTH:
+            if p[1] == 180:
+                return p
+            else:
+                newpos = (p[0], p[1] + 20)
+                self.turtle.stamp()
+                self.turtle.goto(newpos)
+                i,j = self.pos2index(newpos)
+                self.matrix[i][j]=0
+        if d == SOUTH:
+            if p[1] == -200:
+                return p
+            else:
+                newpos = (p[0], p[1] - 20)
+                self.turtle.stamp()
+                self.turtle.goto(newpos)
+                i,j = self.pos2index(newpos)
+                self.matrix[i][j]=0
 
     def pos2index(self, p):
         """ converts tuple p into tuple idx
