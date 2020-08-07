@@ -42,6 +42,10 @@ class Maze:
         # (-180,180) for instance
         if d == EAST:
             newpos = (p[0] + 20, p[1])
+            i0,j0 = self.pos2index(p)
+            matrix_value = self.matrix[i0+2,j0]
+            if matrix_value == 0:
+                return p
             self.turtle.stamp()
             self.turtle.goto(newpos)
             i,j = self.pos2index(newpos)
