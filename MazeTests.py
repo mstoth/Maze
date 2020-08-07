@@ -24,8 +24,8 @@ class MazeTests(unittest.TestCase):
         self.assertTrue(self.m.s.bgcolor() == 'blue')
 
     def testSize(self):
-        self.assertTrue(self.m.s.window_height() == SIZE, f"window height is {self.m.s.window_height()}")
-        self.assertTrue(self.m.s.window_width() == SIZE)
+        self.assertTrue(self.m.s.window_height() == SIZE * 1.3, f"window height is {self.m.s.window_height()}")
+        self.assertTrue(self.m.s.window_width() == SIZE * 1.3)
 
     def testMatrixSize(self):
         self.assertTrue(len(self.m.matrix) == SIZE / 20)
@@ -37,11 +37,11 @@ class MazeTests(unittest.TestCase):
     def testCoordinates(self):
         self.m.turtle.goto(-180, 180)
         self.m.turtle.stamp()
-        self.m.turtle.goto(-180, 200)
+        self.m.turtle.goto(-180, -200)
         self.m.turtle.stamp()
-        self.m.turtle.goto(200, -180)
+        self.m.turtle.goto(200, -200)
         self.m.turtle.stamp()
-        self.m.turtle.goto(200, 200)
+        self.m.turtle.goto(200, 180)
         self.m.turtle.stamp()
         self.assertTrue((0, 0) == self.m.pos2index((-180, 180)), f"{self.m.pos2index((-180, 180))}")
         self.assertTrue((19, 19) == self.m.pos2index((200, -200)), f"{self.m.pos2index((200, -200))}")
