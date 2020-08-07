@@ -65,9 +65,12 @@ class MazeTests(unittest.TestCase):
         value = 0
         self.m.setMatrixValueAt(self.m.turtle.position(), value)
         self.assertTrue(0 == value)
+
     def testSetMatrixValueAt(self):
-        self.m.setMatrixValueAt(self.m.turtle.pos(),1)
-        self.assertTrue(self.m.matrix[0][0],1)
+        self.m.setMatrixValueAt(self.m.turtle.pos(), 1)
+        self.assertTrue(self.m.matrix[0][0] == 1)
+        self.m.setMatrixValueAt(self.m.turtle.pos(), 0)
+        self.assertTrue(self.m.matrix[0][0] == 0)
 
 
 if __name__ == "__main__":
