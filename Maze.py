@@ -42,41 +42,53 @@ class Maze:
         # (-180,180) for instance
         if d == EAST:
             newpos = (p[0] + 20, p[1])
-            i0,j0 = self.pos2index(p)
-            matrix_value = self.matrix[i0+2,j0]
+            i0, j0 = self.pos2index(p)
+            matrix_value = self.matrix[i0 + 2][j0]
             if matrix_value == 0:
                 return p
-            self.turtle.stamp()
             self.turtle.goto(newpos)
-            i,j = self.pos2index(newpos)
+            self.turtle.stamp()
+            i, j = self.pos2index(newpos)
             self.matrix[i][j] = 0
         if d == WEST:
             if p[0] == -180:
                 return p
             else:
                 newpos = (p[0] - 20, p[1])
-                self.turtle.stamp()
+                i0, j0 = self.pos2index(p)
+                matrix_value = self.matrix[i0 - 2][j0]
+                if matrix_value == 0:
+                    return p
                 self.turtle.goto(newpos)
-                i,j = self.pos2index(newpos)
-                self.matrix[i][j]=0
+                self.turtle.stamp()
+                i, j = self.pos2index(newpos)
+                self.matrix[i][j] = 0
         if d == NORTH:
             if p[1] == 180:
                 return p
             else:
-                newpos = (p[0], p[1] + 20)
-                self.turtle.stamp()
+                newpos = (p[0], p[1] - 20)
+                i0, j0 = self.pos2index(p)
+                matrix_value = self.matrix[i0][j0 - 2]
+                if matrix_value == 0:
+                    return p
                 self.turtle.goto(newpos)
-                i,j = self.pos2index(newpos)
-                self.matrix[i][j]=0
+                self.turtle.stamp()
+                i, j = self.pos2index(newpos)
+                self.matrix[i][j] = 0
         if d == SOUTH:
             if p[1] == -200:
                 return p
             else:
                 newpos = (p[0], p[1] - 20)
-                self.turtle.stamp()
+                i0, j0 = self.pos2index(p)
+                matrix_value = self.matrix[i0][j0 + 2]
+                if matrix_value == 0:
+                    return p
                 self.turtle.goto(newpos)
-                i,j = self.pos2index(newpos)
-                self.matrix[i][j]=0
+                self.turtle.stamp()
+                i, j = self.pos2index(newpos)
+                self.matrix[i][j] = 0
 
     def pos2index(self, p):
         """ converts tuple p into tuple idx
