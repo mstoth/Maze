@@ -67,7 +67,7 @@ class Maze:
             if p[1] == 180:
                 return p
             else:
-                newpos = (p[0], p[1] - 20)
+                newpos = (p[0], p[1] + 20)
                 i0, j0 = self.pos2index(p)
                 matrix_value = self.matrix[i0][j0 - 2]
                 if matrix_value == 0:

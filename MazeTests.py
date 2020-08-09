@@ -95,6 +95,18 @@ class MazeTests(unittest.TestCase):
         self.m.dig(NORTH)
         self.assertTrue(self.m.turtle.pos() == (-140, 140),f"{self.m.turtle.pos()}")
 
+    def testBreakThrough2(self):
+        self.m.dig(SOUTH)
+        self.m.dig(SOUTH)
+        self.m.dig(SOUTH)
+        self.m.dig(SOUTH)
+        self.m.dig(EAST)
+        self.m.dig(EAST)
+        self.m.dig(NORTH)
+        self.m.dig(NORTH)
+        self.m.dig(WEST)
+        self.assertTrue(self.m.turtle.pos() == (-140, 140), f"{self.m.turtle.pos()}")
+
 
 if __name__ == "__main__":
     unittest.main()
