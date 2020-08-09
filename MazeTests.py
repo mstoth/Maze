@@ -108,5 +108,21 @@ class MazeTests(unittest.TestCase):
         self.assertTrue(self.m.turtle.pos() == (-140, 140), f"{self.m.turtle.pos()}")
 
 
+    # def testNeighbors(self):
+    #     self.assertTrue(self.m.neighbors() == [(1, 0), (-1, 1), (-1, 2), (1, 3)], f"{self.m.neighbors()}")
+    #     r = self.m.neighbors()
+    #     self.assertTrue((r[0] == (1, 0) and r[1] == (-1, 1) and
+    #                      r[2] == (-1, 2) and r[3] == (1, 3)), "got " + str(r))
+    #     self.m.reset()
+    #     self.m.turtle.goto(-160, 160)
+    #     r = self.m.neighbors()
+    #     self.assertTrue((r[0] == (1, 0) and r[1] == (-1, 1) and
+    #                      r[2] == (-1, 2) and r[3] == (1, 3)), "got " + str(r))
+    #     self.m.reset()
+    #     self.m.turtle.goto(-140, 140)
+    #     r = self.m.neighbors()
+    #     self.assertTrue((r[0] == (1, 0) and r[1] == (1, 1) and
+    #                      r[2] == (1, 2) and r[3] == (1, 3)), "got " + str(r))
+
 if __name__ == "__main__":
     unittest.main()

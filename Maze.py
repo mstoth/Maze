@@ -1,4 +1,5 @@
 import turtle
+import random
 
 SIZE = 400
 
@@ -26,6 +27,8 @@ class Maze:
         self.turtle.color('white')
         self.turtle.stamp()
         self.matrix[0][0] = 0
+        self.depth = 0
+        self.goal = (-180,180)
 
     def fourcorners(self):
         self.turtle.goto(-180, 180)
@@ -103,7 +106,9 @@ class Maze:
 
     def getMatrixValueAt(self, pos):
         x = int((pos[0] + 180) / 20)
-        y = int((pos[1] - 180) / 20)
+        y = int((180 - pos[1]) / 20)
+        if x < 0 or x > 19 or y < 0 or y > 19:
+            return -1
         v = self.matrix[x][y]
         return v
 
@@ -125,3 +130,29 @@ class Maze:
             self.turtle.color('blue')
             self.turtle.stamp()
         return True
+
+    # def neighbors(self):
+    #     p = self.turtle.position()
+    #     r = []
+    #     r.append((self.getMatrixValueAt((p[0] + 40, p[1])), EAST))
+    #     r.append((self.getMatrixValueAt((p[0], p[1] + 40)), NORTH))
+    #     r.append((self.getMatrixValueAt((p[0] - 40, p[1])), WEST))
+    #     r.append((self.getMatrixValueAt((p[0], p[1] - 40)), SOUTH))
+    #     return r
+    #
+    # def makeMaze(self):
+    #     n = self.neighbors()
+    #     oldpos = self.turtle.position()
+    #     while len(n) > 0:
+    #         nchoice = random.choice(n)
+    #         n.remove(nchoice)
+    #         self.turtle.goto(oldpos)
+    #         if nchoice[0] == 1:
+    #             d = nchoice[1]
+    #             self.dig(d)
+    #             self.dig(d)
+    #             if self.turtle.pos()[0] > self.depth:
+    #                 self.goal = self.turtle.pos()
+    #                 self.depth = self.goal[1]
+    #             self.depth = self.depth + 1
+    #             self.makeMaze()
